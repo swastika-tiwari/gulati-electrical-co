@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulati Electric Co. | Kalkaji's Trusted Appliance & Electronics Store</title>
+    <!-- Google Fonts: Merriweather for Vintage Indie Headers & Inter for crisp readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crimson: {
+                            50: '#fdf2f2',
+                            100: '#fde6e6',
+                            600: '#d9252c',
+                            700: '#b81d24', // Storefront Primary Red
+                            800: '#96161c',
+                            900: '#751014',
+                        },
+                        cream: {
+                            50: '#ffffff',
+                            100: '#fbf9f4', // Warm Antique Cream Background
+                            200: '#f5efe6', // Card fill
+                            300: '#ede4d4',
+                            400: '#e0d2bc',
+                        },
+                        amberGold: {
+                            500: '#d97706',
+                            600: '#b45309',
+                        },
+                        charcoal: {
+                            800: '#27272a',
+                            900: '#1f2937',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fbf9f4;
+            color: #1f2937;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-serif-header {
+            font-family: 'Merriweather', Georgia, serif;
+        }
+        .badge-stamp {
+            border: 2px dashed #b81d24;
+            background-color: #f5efe6;
+            transform: rotate(-2deg);
+        }
+        .indie-border {
+            border: 2px solid #27272a;
+            box-shadow: 4px 4px 0px #27272a;
+        }
+        .indie-button {
+            border: 2px solid #27272a;
+            box-shadow: 3px 3px 0px #27272a;
+            transition: all 0.15s ease-in-out;
+        }
+        .indie-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #27272a;
+        }
+        .indie-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #27272a;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5efe6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b81d24;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-crimson-700 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-crimson-700 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-inner tracking-wide flex flex-wrap items-center justify-center gap-2">
+        <span>⚡ Need instant appliance guidance? Call Mr. Gaurav Gulati:</span>
+        <a href="tel:09871808832" class="underline hover:text-yellow-200 font-bold flex items-center gap-1">
+            <i class="fa-solid fa-phone"></i> 098718 08832
+        </a>
+        <span class="hidden md:inline">|</span>
+        <span class="hidden md:inline"><i class="fa-regular fa-clock"></i> Open Daily 10:00 AM – 9:30 PM</span>
+        <span class="hidden lg:inline">|</span>
+        <span class="hidden lg:inline"><i class="fa-solid fa-location-dot"></i> Block H, Kalkaji, New Delhi</span>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-cream-100/95 backdrop-blur-md border-b-2 border-charcoal-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+            
+            <!-- Store Logo & Indie Badge -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                <div class="w-12 h-12 bg-crimson-700 text-white rounded-lg indie-border flex items-center justify-center font-serif-header font-bold text-2xl tracking-tighter">
+                    GE
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-serif-header font-extrabold text-xl sm:text-2xl text-crimson-700 tracking-tight leading-tight">
+                            GULATI ELECTRIC CO.
+                        </h1>
+                        <span class="hidden sm:inline-block bg-amber-500 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded indie-border">
+                            EST. KALKAJI
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-600 font-medium">Authorized Retailer • Sujata • Morphy Richards • Havells • Glen</p>
+                </div>
+            </div>
+
+            <!-- Header Actions (Search Trigger, Quote Cart, Phone Call) -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Quote Drawer Trigger Button -->
+                <button onclick="toggleCartDrawer()" class="relative bg-cream-200 hover:bg-cream-300 text-charcoal-900 px-3 py-2 rounded-lg font-bold text-xs sm:text-sm indie-button flex items-center gap-2" title="View Inquiry List">
+                    <i class="fa-solid fa-clipboard-list text-crimson-700 text-lg"></i>
+                    <span class="hidden md:inline">Inquiry Quote</span>
+                    <span id="cart-count-badge" class="bg-crimson-700 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+
+                <!-- Direct Call Action Button -->
+                <a href="tel:09871808832" class="bg-crimson-700 hover:bg-crimson-800 text-white px-3 py-2 rounded-lg font-bold text-xs sm:text-sm indie-button flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="hidden sm:inline">Call Store</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-charcoal-900 p-2 text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Bar Links -->
+        <nav class="border-t border-gray-300 bg-cream-200 hidden lg:block">
+            <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-sm font-semibold">
+                <div class="flex items-center space-x-1 overflow-x-auto py-2">
+                    <button onclick="switchTab('home')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition active-tab text-crimson-700 font-bold" id="tab-btn-home">
+                        <i class="fa-solid fa-store mr-1"></i> Home
+                    </button>
+                    <button onclick="switchTab('catalog')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition text-gray-700" id="tab-btn-catalog">
+                        <i class="fa-solid fa-boxes-stacked mr-1"></i> Full Catalog
+                    </button>
+                    <button onclick="switchTab('chimneys')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition text-gray-700" id="tab-btn-chimneys">
+                        <i class="fa-solid fa-wind mr-1"></i> Chimneys & Stoves
+                    </button>
+                    <button onclick="switchTab('cooling')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition text-gray-700" id="tab-btn-cooling">
+                        <i class="fa-solid fa-snowflake mr-1"></i> AC & Cooling
+                    </button>
+                    <button onclick="switchTab('brands')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition text-gray-700" id="tab-btn-brands">
+                        <i class="fa-solid fa-award mr-1"></i> Authorized Brands
+                    </button>
+                    <button onclick="switchTab('about')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition text-gray-700" id="tab-btn-about">
+                        <i class="fa-solid fa-building-user mr-1"></i> About & Legacy
+                    </button>
+                    <button onclick="switchTab('reviews')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition text-gray-700" id="tab-btn-reviews">
+                        <i class="fa-solid fa-star text-amber-500 mr-1"></i> Google Reviews (3.8★)
+                    </button>
+                    <button onclick="switchTab('contact')" class="nav-tab px-3 py-1.5 rounded-md hover:bg-crimson-700 hover:text-white transition text-gray-700" id="tab-btn-contact">
+                        <i class="fa-solid fa-map-location-dot mr-1"></i> Store & Location
+                    </button>
+                </div>
+                
+                <div class="text-xs text-gray-600 font-mono flex items-center gap-1 py-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-ping"></span>
+                    <span class="font-semibold text-emerald-800">GSTIN: 07BEOPG8091N1ZQ</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cream-200 border-t border-gray-300 p-4 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-store w-6"></i> Home
+            </button>
+            <button onclick="switchTab('catalog'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-boxes-stacked w-6"></i> Full Catalog
+            </button>
+            <button onclick="switchTab('chimneys'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-wind w-6"></i> Chimneys & Gas Stoves
+            </button>
+            <button onclick="switchTab('cooling'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-snowflake w-6"></i> Air Conditioning & Fans
+            </button>
+            <button onclick="switchTab('brands'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-award w-6"></i> Authorized Brands
+            </button>
+            <button onclick="switchTab('about'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-building-user w-6"></i> Kalkaji Store Legacy
+            </button>
+            <button onclick="switchTab('reviews'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-star text-amber-500 w-6"></i> Customer Reviews (3.8★)
+            </button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded font-semibold text-gray-800 hover:bg-crimson-700 hover:text-white">
+                <i class="fa-solid fa-map-location-dot w-6"></i> Store Address & Contact
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT VIEWS CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- VIEW 1: HOME -->
+        <section id="view-home" class="view-section space-y-10">
+            <!-- Hero Banner -->
+            <div class="relative bg-gradient-to-r from-crimson-900 via-crimson-800 to-crimson-700 text-white rounded-2xl p-6 sm:p-10 indie-border overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-15 pointer-events-none text-cream-100 text-9xl font-serif">
+                    GE
+                </div>
+                
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="inline-flex items-center gap-2 bg-amber-500 text-charcoal-900 font-bold text-xs uppercase px-3 py-1 rounded-full indie-border">
+                            <i class="fa-solid fa-check-double"></i> 100% Genuine Warranty Guaranteed
+                        </div>
+                        <h2 class="font-serif-header text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                            Kalkaji's Preferred Neighborhood Electric & Appliance Store
+                        </h2>
+                        <p class="text-cream-200 text-sm sm:text-base leading-relaxed">
+                            Serving Block H, Kalkaji and South Delhi homes with top-grade kitchen chimneys, Sujata mixer grinders, Morphy Richards air fryers, Havells ACs, and instant home delivery with personal installation support by <strong class="text-white underline">Mr. Gaurav Gulati</strong>.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-3 pt-2">
+                            <button onclick="switchTab('catalog')" class="bg-amber-500 hover:bg-amber-600 text-charcoal-900 font-bold px-5 py-3 rounded-xl indie-button flex items-center gap-2">
+                                <i class="fa-solid fa-bag-shopping"></i> Browse Product Catalog
+                            </button>
+                            <a href="https://wa.me/919871808832?text=Hello%20Mr.%20Gaurav,%20I%20am%20looking%20for%20home%20appliances%20from%20Gulati%20Electric%20Co." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3 rounded-xl indie-button flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp Inquiry
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Store Highlight Card -->
+                    <div class="lg:col-span-5 bg-cream-100 text-charcoal-900 p-5 rounded-xl indie-border space-y-4">
+                        <div class="flex justify-between items-start border-b pb-3 border-gray-300">
+                            <div>
+                                <h3 class="font-serif-header font-bold text-lg text-crimson-700">Gulati Electric Co.</h3>
+                                <p class="text-xs text-gray-600">H-14A, Block H, Kalkaji, New Delhi</p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa-solid fa-door-open"></i> Open Now
+                            </span>
+                        </div>
+
+                        <!-- Highlights List -->
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div class="bg-cream-200 p-2.5 rounded border border-gray-300">
+                                <span class="text-crimson-700 font-bold block text-sm"><i class="fa-solid fa-star text-amber-500"></i> 3.8 / 5.0</span>
+                                <span class="text-gray-600">64+ Google Reviews</span>
+                            </div>
+                            <div class="bg-cream-200 p-2.5 rounded border border-gray-300">
+                                <span class="text-crimson-700 font-bold block text-sm"><i class="fa-solid fa-truck-fast"></i> Express</span>
+                                <span class="text-gray-600">Kalkaji & South Delhi</span>
+                            </div>
+                            <div class="bg-cream-200 p-2.5 rounded border border-gray-300">
+                                <span class="text-crimson-700 font-bold block text-sm"><i class="fa-solid fa-screwdriver-wrench"></i> On-Site</span>
+                                <span class="text-gray-600">Expert Installation</span>
+                            </div>
+                            <div class="bg-cream-200 p-2.5 rounded border border-gray-300">
+                                <span class="text-crimson-700 font-bold block text-sm"><i class="fa-solid fa-shield-halved"></i> 100% Brand</span>
+                                <span class="text-gray-600">Authorized Warranty</span>
+                            </div>
+                        </div>
+
+                        <!-- Google Review Snapshot Quote -->
+                        <div class="bg-amber-50/80 p-3 rounded-lg border border-amber-200 text-xs text-amber-900 italic">
+                            "<i class="fa-solid fa-quote-left mr-1 opacity-50"></i>Purchased window AC. Mr. Gaurav Gulati helped a lot. There was a very prompt response and installation.<i class="fa-solid fa-quote-right ml-1 opacity-50"></i>"
+                            <span class="block font-bold text-right text-gray-700 not-italic mt-1">— Verified Google Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Brand Banner Strip -->
+            <div class="bg-cream-200 p-4 rounded-xl indie-border">
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest text-center mb-3">Our Featured Authorized Store Brand Partners</p>
+                <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 font-bold text-gray-800 text-lg sm:text-xl">
+                    <span class="px-3 py-1 bg-white rounded indie-border text-red-700 font-serif">SUJATA</span>
+                    <span class="px-3 py-1 bg-white rounded indie-border text-gray-900">Morphy Richards</span>
+                    <span class="px-3 py-1 bg-white rounded indie-border text-crimson-700">HAVELLS</span>
+                    <span class="px-3 py-1 bg-white rounded indie-border text-blue-900">GLEN</span>
+                    <span class="px-3 py-1 bg-white rounded indie-border text-red-600">IFB</span>
+                    <span class="px-3 py-1 bg-white rounded indie-border text-orange-600">KENSTAR</span>
+                </div>
+            </div>
+
+            <!-- Quick Category Grid -->
+            <div>
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <span class="text-crimson-700 font-bold text-xs uppercase tracking-wider">Explore Store Departments</span>
+                        <h3 class="font-serif-header text-2xl font-bold text-charcoal-900">Popular Product Categories</h3>
+                    </div>
+                    <button onclick="switchTab('catalog')" class="text-crimson-700 font-bold text-sm hover:underline flex items-center gap-1">
+                        View All <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <!-- Cat 1 -->
+                    <div onclick="filterCatalogCategory('Kitchen Appliances')" class="bg-cream-100 p-4 rounded-xl indie-border text-center cursor-pointer hover:bg-cream-200 transition group">
+                        <div class="w-12 h-12 mx-auto bg-crimson-100 text-crimson-700 rounded-full flex items-center justify-center text-xl mb-2 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-blender"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-charcoal-900">Juicers & Mixers</h4>
+                        <p class="text-[11px] text-gray-500 mt-1">Sujata, Morphy</p>
+                    </div>
+
+                    <!-- Cat 2 -->
+                    <div onclick="filterCatalogCategory('Cooking & Stoves')" class="bg-cream-100 p-4 rounded-xl indie-border text-center cursor-pointer hover:bg-cream-200 transition group">
+                        <div class="w-12 h-12 mx-auto bg-crimson-100 text-crimson-700 rounded-full flex items-center justify-center text-xl mb-2 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-fire-burner"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-charcoal-900">Chimneys & Hobs</h4>
+                        <p class="text-[11px] text-gray-500 mt-1">Glen, Faber, Pigeon</p>
+                    </div>
+
+                    <!-- Cat 3 -->
+                    <div onclick="filterCatalogCategory('Air Conditioning')" class="bg-cream-100 p-4 rounded-xl indie-border text-center cursor-pointer hover:bg-cream-200 transition group">
+                        <div class="w-12 h-12 mx-auto bg-crimson-100 text-crimson-700 rounded-full flex items-center justify-center text-xl mb-2 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-charcoal-900">Air Conditioners</h4>
+                        <p class="text-[11px] text-gray-500 mt-1">Window & Split ACs</p>
+                    </div>
+
+                    <!-- Cat 4 -->
+                    <div onclick="filterCatalogCategory('Air Fryers & OTGs')" class="bg-cream-100 p-4 rounded-xl indie-border text-center cursor-pointer hover:bg-cream-200 transition group">
+                        <div class="w-12 h-12 mx-auto bg-crimson-100 text-crimson-700 rounded-full flex items-center justify-center text-xl mb-2 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-charcoal-900">Air Fryers & OTG</h4>
+                        <p class="text-[11px] text-gray-500 mt-1">Morphy, Kenstar</p>
+                    </div>
+
+                    <!-- Cat 5 -->
+                    <div onclick="filterCatalogCategory('Water Heating & Geysers')" class="bg-cream-100 p-4 rounded-xl indie-border text-center cursor-pointer hover:bg-cream-200 transition group">
+                        <div class="w-12 h-12 mx-auto bg-crimson-100 text-crimson-700 rounded-full flex items-center justify-center text-xl mb-2 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-faucet-drip"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-charcoal-900">Geysers & Heaters</h4>
+                        <p class="text-[11px] text-gray-500 mt-1">Havells, Morphy</p>
+                    </div>
+
+                    <!-- Cat 6 -->
+                    <div onclick="filterCatalogCategory('Fans & Ventilation')" class="bg-cream-100 p-4 rounded-xl indie-border text-center cursor-pointer hover:bg-cream-200 transition group">
+                        <div class="w-12 h-12 mx-auto bg-crimson-100 text-crimson-700 rounded-full flex items-center justify-center text-xl mb-2 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-fan"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-charcoal-900">Fans & Coolers</h4>
+                        <p class="text-[11px] text-gray-500 mt-1">Havells, Kenstar</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- "Why Buy Local vs Online" Comparison Section -->
+            <div class="bg-cream-200 p-6 sm:p-8 rounded-2xl indie-border space-y-6">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <span class="bg-amber-500 text-charcoal-900 text-xs font-bold px-3 py-1 rounded-full uppercase indie-border">The Kalkaji Store Advantage</span>
+                    <h3 class="font-serif-header text-2xl sm:text-3xl font-bold text-charcoal-900">Why Buy from Gulati Electric Co. vs Online Portals?</h3>
+                    <p class="text-gray-600 text-sm">Experience real store trust, expert consultation, and guaranteed immediate service right in South Delhi.</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm border-collapse bg-white rounded-xl overflow-hidden indie-border">
+                        <thead>
+                            <tr class="bg-crimson-700 text-white font-serif-header">
+                                <th class="p-3 sm:p-4 border-b border-charcoal-800">Shopping Feature</th>
+                                <th class="p-3 sm:p-4 border-b border-charcoal-800 bg-crimson-800 font-bold text-amber-300"><i class="fa-solid fa-store mr-1"></i> Gulati Electric Co. (Kalkaji)</th>
+                                <th class="p-3 sm:p-4 border-b border-charcoal-800 text-gray-300">Generic Online Marketplaces</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-charcoal-900">
+                            <tr>
+                                <td class="p-3 sm:p-4 font-semibold">Personal Consultation</td>
+                                <td class="p-3 sm:p-4 bg-cream-100 text-emerald-800 font-bold"><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Direct advice from Mr. Gaurav Gulati</td>
+                                <td class="p-3 sm:p-4 text-gray-500"><i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i> Automated chatbots & call centers</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 sm:p-4 font-semibold">Installation & Setup</td>
+                                <td class="p-3 sm:p-4 bg-cream-100 text-emerald-800 font-bold"><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Same-day/Next-day verified local technicians</td>
+                                <td class="p-3 sm:p-4 text-gray-500"><i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i> Unpredictable 3rd-party delays</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 sm:p-4 font-semibold">Product Authenticity</td>
+                                <td class="p-3 sm:p-4 bg-cream-100 text-emerald-800 font-bold"><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> 100% Brand Authorized with GST Invoice</td>
+                                <td class="p-3 sm:p-4 text-gray-500"><i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i> Risk of unauthorized sellers or old stock</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 sm:p-4 font-semibold">After-Sales Support</td>
+                                <td class="p-3 sm:p-4 bg-cream-100 text-emerald-800 font-bold"><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Walk-in or phone support at Block H Kalkaji</td>
+                                <td class="p-3 sm:p-4 text-gray-500"><i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i> Complex online return processes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Featured Seasonal Deals Preview -->
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <span class="text-crimson-700 font-bold text-xs uppercase tracking-wider">Top Picks In Store</span>
+                        <h3 class="font-serif-header text-2xl font-bold text-charcoal-900">Featured In-Store Best Sellers</h3>
+                    </div>
+                </div>
+
+                <div id="home-featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: FULL CATALOG -->
+        <section id="view-catalog" class="view-section hidden space-y-6">
+            <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-300 pb-4">
+                    <div>
+                        <h2 class="font-serif-header text-2xl font-bold text-crimson-700">In-Store Appliance Catalog</h2>
+                        <p class="text-xs text-gray-600">Browse live stock items at Gulati Electric Co. (Block H, Kalkaji)</p>
+                    </div>
+                    <!-- Live Search Bar -->
+                    <div class="relative w-full md:w-72">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" id="catalog-search" oninput="applyCatalogFilters()" placeholder="Search Sujata, Chimney, AC, OTG..." class="w-full pl-9 pr-4 py-2 text-sm rounded-lg border-2 border-charcoal-800 bg-white focus:outline-none focus:ring-2 focus:ring-crimson-700">
+                    </div>
+                </div>
+
+                <!-- Filters Strip -->
+                <div class="flex flex-wrap gap-3 items-center text-xs">
+                    <span class="font-bold text-gray-700 uppercase tracking-wider"><i class="fa-solid fa-filter mr-1"></i> Filters:</span>
+                    
+                    <!-- Category Select -->
+                    <select id="filter-category" onchange="applyCatalogFilters()" class="px-3 py-1.5 rounded-md border-2 border-charcoal-800 bg-white font-semibold text-gray-800">
+                        <option value="ALL">All Categories</option>
+                        <option value="Kitchen Appliances">Kitchen Appliances</option>
+                        <option value="Cooking & Stoves">Cooking, Stoves & Chimneys</option>
+                        <option value="Air Conditioning">Air Conditioning & Cooling</option>
+                        <option value="Air Fryers & OTGs">Air Fryers & OTGs</option>
+                        <option value="Water Heating & Geysers">Geysers & Water Heating</option>
+                        <option value="Fans & Ventilation">Fans & Ventilation</option>
+                    </select>
+
+                    <!-- Brand Select -->
+                    <select id="filter-brand" onchange="applyCatalogFilters()" class="px-3 py-1.5 rounded-md border-2 border-charcoal-800 bg-white font-semibold text-gray-800">
+                        <option value="ALL">All Brands</option>
+                        <option value="Sujata">Sujata</option>
+                        <option value="Morphy Richards">Morphy Richards</option>
+                        <option value="Havells">Havells</option>
+                        <option value="Glen">Glen</option>
+                        <option value="Kenstar">Kenstar</option>
+                        <option value="Skyline">Skyline</option>
+                    </select>
+
+                    <!-- Reset Filters Button -->
+                    <button onclick="resetCatalogFilters()" class="text-crimson-700 hover:underline font-bold ml-auto">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="catalog-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Dynamic Content Rendered Here -->
+            </div>
+        </section>
+
+        <!-- VIEW 3: CHIMNEYS & STOVES SPECIAL -->
+        <section id="view-chimneys" class="view-section hidden space-y-8">
+            <!-- Header Showcase -->
+            <div class="bg-gradient-to-r from-gray-900 to-crimson-900 text-white p-6 sm:p-8 rounded-2xl indie-border flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="space-y-3 max-w-xl">
+                    <span class="bg-amber-500 text-charcoal-900 text-xs font-bold px-3 py-1 rounded-full uppercase indie-border">Kalkaji Kitchen Special</span>
+                    <h2 class="font-serif-header text-3xl font-bold">Kitchen Chimneys & Gas Hobs</h2>
+                    <p class="text-cream-200 text-sm">
+                        Upgrade your modern kitchen with Glen, Faber, and Morphy Richards smokeless autoclean chimneys and toughened glass gas stoves. Complete local installation available across South Delhi!
+                    </p>
+                </div>
+                <div class="bg-cream-100 text-charcoal-900 p-4 rounded-xl indie-border text-center w-full md:w-64">
+                    <i class="fa-solid fa-award text-amber-500 text-3xl mb-1"></i>
+                    <h4 class="font-bold text-sm">Customer Favorite</h4>
+                    <p class="text-xs text-gray-600 italic">"Got our kitchen chimney from them. They have good variety and good price!"</p>
+                </div>
+            </div>
+
+            <!-- Chimney Calculator Widget -->
+            <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-4">
+                <div class="border-b border-gray-300 pb-3">
+                    <h3 class="font-serif-header font-bold text-xl text-crimson-700 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Kitchen Chimney Size & Suction Recommender
+                    </h3>
+                    <p class="text-xs text-gray-600">Find the exact chimney suction power (m³/hr) and size (60cm vs 90cm) needed for your kitchen setup.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Kitchen Size & Stove Type</label>
+                        <select id="calc-stove-burners" onchange="calculateChimneyRecommendation()" class="w-full p-2 text-sm rounded border-2 border-charcoal-800 bg-white">
+                            <option value="2">2 Burner Stove (Small Kitchen)</option>
+                            <option value="3" selected>3 Burner Stove (Medium Kitchen)</option>
+                            <option value="4">4-5 Burner Hob (Large Kitchen)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Cooking Style & Frequency</label>
+                        <select id="calc-cooking-style" onchange="calculateChimneyRecommendation()" class="w-full p-2 text-sm rounded border-2 border-charcoal-800 bg-white">
+                            <option value="light">Light Steam / Boiled Foods</option>
+                            <option value="medium" selected>Moderate Indian Frying & Tadka</option>
+                            <option value="heavy">Heavy Frying, Grilling & Deep Oil Cooking</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Ducting Distance</label>
+                        <select id="calc-ducting" onchange="calculateChimneyRecommendation()" class="w-full p-2 text-sm rounded border-2 border-charcoal-800 bg-white">
+                            <option value="short">Direct Wall Outlet (< 5 ft)</option>
+                            <option value="medium" selected>Standard Pipe Run (5 - 10 ft)</option>
+                            <option value="long">Long Pipe Run / Bends (> 10 ft)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Calculator Result Output Box -->
+                <div id="chimney-recommendation-result" class="bg-white p-4 rounded-xl border-2 border-crimson-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <!-- Dedicated Chimney & Stove Products List -->
+            <div>
+                <h3 class="font-serif-header text-xl font-bold text-charcoal-900 mb-4">In-Store Chimney & Stove Selection</h3>
+                <div id="chimneys-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 4: AIR CONDITIONING & COOLING -->
+        <section id="view-cooling" class="view-section hidden space-y-8">
+            <div class="bg-gradient-to-r from-blue-900 to-crimson-900 text-white p-6 sm:p-8 rounded-2xl indie-border flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="space-y-3 max-w-xl">
+                    <span class="bg-amber-500 text-charcoal-900 text-xs font-bold px-3 py-1 rounded-full uppercase indie-border">Beat the Delhi Heat</span>
+                    <h2 class="font-serif-header text-3xl font-bold">Window & Split Air Conditioners</h2>
+                    <p class="text-cream-200 text-sm">
+                        Havells, Lloyd, Kenstar ACs & Air Coolers. Enjoy fast cooling, energy star ratings, express Kalkaji delivery, and personal post-sales support from Mr. Gaurav Gulati.
+                    </p>
+                </div>
+                <div class="bg-cream-100 text-charcoal-900 p-4 rounded-xl indie-border text-center w-full md:w-64">
+                    <i class="fa-solid fa-wind text-blue-600 text-3xl mb-1"></i>
+                    <h4 class="font-bold text-sm">Prompt Installation</h4>
+                    <p class="text-xs text-gray-600 italic">"Prompt response and quick installation for Window AC in Kalkaji."</p>
+                </div>
+            </div>
+
+            <!-- AC Tonnage Calculator Widget -->
+            <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-4">
+                <div class="border-b border-gray-300 pb-3">
+                    <h3 class="font-serif-header font-bold text-xl text-crimson-700 flex items-center gap-2">
+                        <i class="fa-solid fa-snowflake"></i> Room AC Tonnage Recommender
+                    </h3>
+                    <p class="text-xs text-gray-600">Calculate the ideal Air Conditioner capacity (Tonnage) based on your room dimensions and sun exposure in Delhi weather.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Room Size (Sq. Ft.)</label>
+                        <select id="calc-ac-room-size" onchange="calculateAcRecommendation()" class="w-full p-2 text-sm rounded border-2 border-charcoal-800 bg-white">
+                            <option value="90">Up to 100 sq. ft. (Small bedroom / office)</option>
+                            <option value="140" selected>100 - 150 sq. ft. (Medium bedroom)</option>
+                            <option value="200">150 - 220 sq. ft. (Large Master bedroom)</option>
+                            <option value="280">220+ sq. ft. (Living room / Hall)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Floor Level / Roof Exposure</label>
+                        <select id="calc-ac-floor" onchange="calculateAcRecommendation()" class="w-full p-2 text-sm rounded border-2 border-charcoal-800 bg-white">
+                            <option value="ground">Ground / Middle Floor (Cooler)</option>
+                            <option value="top" selected>Top Floor / Direct Roof Heat</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Sunlight Exposure</label>
+                        <select id="calc-ac-sun" onchange="calculateAcRecommendation()" class="w-full p-2 text-sm rounded border-2 border-charcoal-800 bg-white">
+                            <option value="shaded">Shaded / Shaded Windows</option>
+                            <option value="sunny" selected>Direct West/South Sun Exposure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="ac-recommendation-result" class="bg-white p-4 rounded-xl border-2 border-crimson-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+
+            <!-- AC & Fans Products Grid -->
+            <div>
+                <h3 class="font-serif-header text-xl font-bold text-charcoal-900 mb-4">Cooling Appliances In Stock</h3>
+                <div id="cooling-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 5: AUTHORIZED BRANDS -->
+        <section id="view-brands" class="view-section hidden space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <span class="bg-crimson-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase indie-border">Genuine Store Assurance</span>
+                <h2 class="font-serif-header text-3xl font-bold text-charcoal-900">Authorized Brand Partnerships</h2>
+                <p class="text-gray-600 text-sm">We partner directly with leading Indian & global appliance leaders to bring you 100% authentic products, original manufacturer GST invoices, and complete official brand warranties.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Brand Card 1: Sujata -->
+                <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-3 relative overflow-hidden">
+                    <span class="absolute right-4 top-4 bg-red-700 text-white font-serif font-bold text-xs px-2.5 py-1 rounded">SUJATA</span>
+                    <h3 class="font-serif-header font-bold text-xl text-crimson-700">Sujata - "Trust The Expert"</h3>
+                    <p class="text-xs text-gray-700 leading-relaxed">
+                        Renowned as the most heavy-duty and long-lasting juicer mixer grinders in Indian households. Features 900W heavy-duty motors capable of running continuously for 90 minutes.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg text-xs font-semibold text-gray-800 border border-gray-300">
+                        <i class="fa-solid fa-certificate text-amber-500 mr-1"></i> Featured In Store: Sujata Dynamix 900W, Powermatic Plus, Supermix Juicers.
+                    </div>
+                </div>
+
+                <!-- Brand Card 2: Morphy Richards -->
+                <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-3 relative overflow-hidden">
+                    <span class="absolute right-4 top-4 bg-gray-900 text-white font-serif font-bold text-xs px-2.5 py-1 rounded">Morphy Richards</span>
+                    <h3 class="font-serif-header font-bold text-xl text-crimson-700">Morphy Richards - "Happiness Engineered"</h3>
+                    <p class="text-xs text-gray-700 leading-relaxed">
+                        British heritage premium kitchen appliances including digital Air Fryers, Oven-Toaster-Grillers (OTGs), solo & grill microwave ovens, and handheld vacuum cleaners.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg text-xs font-semibold text-gray-800 border border-gray-300">
+                        <i class="fa-solid fa-certificate text-amber-500 mr-1"></i> Featured In Store: AirCrisp 25L Air Fryer OTG, 20MWS Microwave Oven.
+                    </div>
+                </div>
+
+                <!-- Brand Card 3: Havells -->
+                <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-3 relative overflow-hidden">
+                    <span class="absolute right-4 top-4 bg-crimson-700 text-white font-bold text-xs px-2.5 py-1 rounded">HAVELLS</span>
+                    <h3 class="font-serif-header font-bold text-xl text-crimson-700">Havells Electricals & Home Appliances</h3>
+                    <p class="text-xs text-gray-700 leading-relaxed">
+                        India’s leading electrical brand offering energy-efficient Inverter Split ACs, Window ACs, decorative ceiling fans, instant water geysers, and room heating solutions.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg text-xs font-semibold text-gray-800 border border-gray-300">
+                        <i class="fa-solid fa-certificate text-amber-500 mr-1"></i> Featured In Store: Havells 1.5 Ton AC, Instanio Instant Geysers, Stealth Fans.
+                    </div>
+                </div>
+
+                <!-- Brand Card 4: Glen -->
+                <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-3 relative overflow-hidden">
+                    <span class="absolute right-4 top-4 bg-blue-900 text-white font-bold text-xs px-2.5 py-1 rounded">GLEN</span>
+                    <h3 class="font-serif-header font-bold text-xl text-crimson-700">Glen - "Live Better!"</h3>
+                    <p class="text-xs text-gray-700 leading-relaxed">
+                        Pioneers in kitchen aesthetics offering filterless auto-clean kitchen chimneys, toughened glass 3 & 4 burner gas stoves, and built-in hobs engineered for heavy Indian cooking.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg text-xs font-semibold text-gray-800 border border-gray-300">
+                        <i class="fa-solid fa-certificate text-amber-500 mr-1"></i> Featured In Store: Glen 60cm & 90cm Auto-Clean Chimneys, Glass Top Stoves.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 6: ABOUT STORE & LEGACY -->
+        <section id="view-about" class="view-section hidden space-y-8">
+            <div class="bg-cream-200 p-6 sm:p-10 rounded-2xl indie-border grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="badge-stamp px-3 py-1 font-bold text-crimson-700 text-xs inline-block">KALKAJI NEIGHBORHOOD LEGACY</span>
+                    <h2 class="font-serif-header text-3xl font-bold text-charcoal-900">About Gulati Electric Company</h2>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        Located at <strong class="text-crimson-700">H-14A, Block H, Kalkaji, New Delhi</strong>, Gulati Electric Co. has established itself as one of the most reliable and customer-friendly electrical and home appliance destinations in South Delhi.
+                    </p>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        Under the expert guidance of <strong class="text-charcoal-900">Mr. Gaurav Gulati</strong>, our store combines traditional retail hospitality with modern appliance technology. Whether you need an emergency window AC setup during summer peaks, a heavy-duty Sujata mixer for your kitchen, or a sleek Glen autoclean chimney, we ensure genuine products, fair pricing, and dependable after-sales installation.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap gap-4 text-xs font-bold">
+                        <div class="bg-white px-4 py-2 rounded-lg border border-gray-300">
+                            <span class="text-crimson-700 block text-base font-serif">GSTIN Registered</span>
+                            <span class="text-gray-600">07BEOPG8091N1ZQ</span>
+                        </div>
+                        <div class="bg-white px-4 py-2 rounded-lg border border-gray-300">
+                            <span class="text-crimson-700 block text-base font-serif">Google Rating</span>
+                            <span class="text-gray-600"><i class="fa-solid fa-star text-amber-500"></i> 3.8 / 5.0 (64+ Reviews)</span>
+                        </div>
+                        <div class="bg-white px-4 py-2 rounded-lg border border-gray-300">
+                            <span class="text-crimson-700 block text-base font-serif">Location</span>
+                            <span class="text-gray-600">Block H, Kalkaji, New Delhi 110019</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Message Box -->
+                <div class="lg:col-span-5 bg-white p-6 rounded-xl indie-border space-y-4">
+                    <div class="flex items-center gap-3 border-b pb-3 border-gray-200">
+                        <div class="w-12 h-12 rounded-full bg-crimson-700 text-white flex items-center justify-center font-bold font-serif text-xl">
+                            GG
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-charcoal-900 text-base">Mr. Gaurav Gulati</h3>
+                            <p class="text-xs text-crimson-700 font-semibold">Store Director & Appliance Advisor</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 italic leading-relaxed">
+                        "At Gulati Electric Co., we don't just sell boxes; we help you choose the right appliance for your household needs. When you step into our store in Kalkaji, you deal directly with us—guaranteeing authentic brand warranty, genuine advice, and prompt installation service."
+                    </p>
+                    <div class="text-right">
+                        <a href="tel:09871808832" class="inline-flex items-center gap-2 bg-crimson-700 text-white text-xs font-bold px-4 py-2 rounded-lg indie-button">
+                            <i class="fa-solid fa-phone"></i> Call Gaurav Gulati Direct
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 7: CUSTOMER REVIEWS -->
+        <section id="view-reviews" class="view-section hidden space-y-8">
+            <div class="bg-cream-200 p-6 rounded-2xl indie-border space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-300 pb-4">
+                    <div>
+                        <span class="text-crimson-700 font-bold text-xs uppercase tracking-wider">Verified Google Reviews</span>
+                        <h2 class="font-serif-header text-2xl font-bold text-charcoal-900">What Kalkaji & South Delhi Customers Say</h2>
+                    </div>
+
+                    <div class="bg-white px-5 py-3 rounded-xl border-2 border-charcoal-800 flex items-center gap-4">
+                        <div class="text-center">
+                            <span class="font-serif-header font-bold text-3xl text-crimson-700 block">3.8</span>
+                            <div class="text-amber-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-600 border-l border-gray-300 pl-3">
+                            <span class="font-bold text-charcoal-900 block">64+ Google Reviews</span>
+                            <span>Appliance & Electronics Store</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Cards Grid -->
+                <div id="google-reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Review 1 -->
+                    <div class="bg-white p-5 rounded-xl border-2 border-charcoal-800 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex text-amber-500 text-sm">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-800 leading-relaxed italic">
+                                "Top-notch experience! Great collection of high-quality gas stoves and chimneys. Fantastic customer support and smooth installation. Will definitely be recommending to friends in Kalkaji."
+                            </p>
+                        </div>
+                        <div class="border-t border-gray-100 pt-2 flex justify-between items-center text-[11px] text-gray-500">
+                            <span class="font-bold text-charcoal-900"><i class="fa-solid fa-user-check text-emerald-600 mr-1"></i> Local Resident</span>
+                            <span>Google Verified</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white p-5 rounded-xl border-2 border-charcoal-800 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex text-amber-500 text-sm">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-800 leading-relaxed italic">
+                                "Got our kitchen chimney from them. They have good variety and good price!"
+                            </p>
+                        </div>
+                        <div class="border-t border-gray-100 pt-2 flex justify-between items-center text-[11px] text-gray-500">
+                            <span class="font-bold text-charcoal-900"><i class="fa-solid fa-user-check text-emerald-600 mr-1"></i> Kalkaji Homeowner</span>
+                            <span>Google Verified</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white p-5 rounded-xl border-2 border-charcoal-800 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex text-amber-500 text-sm">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-800 leading-relaxed italic">
+                                "Purchased window AC. Mr. Gaurav Gulati helped a lot. There was a very prompt response and installation."
+                            </p>
+                        </div>
+                        <div class="border-t border-gray-100 pt-2 flex justify-between items-center text-[11px] text-gray-500">
+                            <span class="font-bold text-charcoal-900"><i class="fa-solid fa-user-check text-emerald-600 mr-1"></i> South Delhi Customer</span>
+                            <span>Google Verified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit A Review Form -->
+                <div class="bg-white p-6 rounded-xl border-2 border-charcoal-800 space-y-4">
+                    <h3 class="font-serif-header font-bold text-lg text-crimson-700">Write a Customer Review for Gulati Electric Co.</h3>
+                    <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Your Full Name</label>
+                                <input type="text" id="review-author" required placeholder="e.g. Ramesh Sharma" class="w-full p-2 text-sm border-2 border-charcoal-800 rounded">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Store Rating</label>
+                                <select id="review-rating" class="w-full p-2 text-sm border-2 border-charcoal-800 rounded bg-white">
+                                    <option value="5">★★★★★ (5/5) - Excellent Experience</option>
+                                    <option value="4">★★★★☆ (4/5) - Very Good</option>
+                                    <option value="3">★★★☆☆ (3/5) - Average</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Your Feedback / Appliance Experience</label>
+                            <textarea id="review-text" required rows="3" placeholder="Tell us about your appliance purchase or installation service..." class="w-full p-2 text-sm border-2 border-charcoal-800 rounded"></textarea>
+                        </div>
+                        <button type="submit" class="bg-crimson-700 hover:bg-crimson-800 text-white font-bold text-xs px-5 py-2.5 rounded-lg indie-button">
+                            <i class="fa-solid fa-paper-plane mr-1"></i> Submit Store Review
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 8: CONTACT & LOCATION -->
+        <section id="view-contact" class="view-section hidden space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Contact Info Column -->
+                <div class="lg:col-span-5 bg-cream-200 p-6 rounded-2xl indie-border space-y-6">
+                    <div>
+                        <span class="badge-stamp px-3 py-1 font-bold text-crimson-700 text-xs inline-block mb-2">STORE DETAILS</span>
+                        <h2 class="font-serif-header text-2xl font-bold text-charcoal-900">Gulati Electric Company</h2>
+                        <p class="text-xs text-gray-600">Appliance & Electrical Store in South Delhi</p>
+                    </div>
+
+                    <div class="space-y-4 text-sm text-gray-800">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded bg-crimson-700 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-charcoal-900 font-serif">Address</strong>
+                                <p class="text-xs text-gray-700">H-14A, Block H, Kalkaji, New Delhi, Delhi 110019</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded bg-crimson-700 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-charcoal-900 font-serif">Contact Person & Phone</strong>
+                                <a href="tel:09871808832" class="text-xs font-bold text-crimson-700 hover:underline">098718 08832 (Mr. Gaurav Gulati)</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded bg-crimson-700 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-charcoal-900 font-serif">Store Timings</strong>
+                                <p class="text-xs text-gray-700">Open Daily: 10:00 AM – 9:30 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded bg-crimson-700 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-file-invoice"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-charcoal-900 font-serif">Official GSTIN</strong>
+                                <p class="text-xs font-mono text-gray-800">07BEOPG8091N1ZQ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex flex-col gap-2">
+                        <a href="https://maps.google.com/?q=H-14A,+Block+H,+Kalkaji,+New+Delhi,+Delhi+110019" target="_blank" class="w-full bg-crimson-700 text-white text-center font-bold text-xs py-3 rounded-xl indie-button flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-diamond-turn-right"></i> Get Google Maps Driving Directions
+                        </a>
+                        <a href="https://wa.me/919871808832?text=Hello%20Gaurav%20Ji,%20I%20am%20enquiring%20about%20appliances%20from%20your%20website." target="_blank" class="w-full bg-emerald-600 text-white text-center font-bold text-xs py-3 rounded-xl indie-button flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Open WhatsApp Chat
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact / Direct Quote Request Form & Interactive Map Preview -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Direct Inquiry Form -->
+                    <div class="bg-white p-6 rounded-2xl border-2 border-charcoal-800 space-y-4">
+                        <h3 class="font-serif-header text-xl font-bold text-crimson-700">Send Direct Product / Price Inquiry</h3>
+                        <p class="text-xs text-gray-600">Fill this form for instant price quotes, stock availability, or home delivery queries.</p>
+
+                        <form onsubmit="handleDirectInquiry(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">Your Name *</label>
+                                    <input type="text" id="inq-name" required placeholder="Enter your full name" class="w-full p-2 text-sm border-2 border-charcoal-800 rounded">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">Phone / WhatsApp Number *</label>
+                                    <input type="tel" id="inq-phone" required placeholder="09811XXXXXX" class="w-full p-2 text-sm border-2 border-charcoal-800 rounded">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">Appliance Category</label>
+                                    <select id="inq-category" class="w-full p-2 text-sm border-2 border-charcoal-800 rounded bg-white">
+                                        <option value="General Appliance">General Appliance Inquiry</option>
+                                        <option value="Sujata Mixer">Sujata Juicer / Mixer</option>
+                                        <option value="Kitchen Chimney">Kitchen Chimney / Gas Stove</option>
+                                        <option value="Air Conditioner">Window or Split AC</option>
+                                        <option value="Air Fryer & OTG">Air Fryer / OTG</option>
+                                        <option value="Geyser & Heater">Geyser / Water Heater</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">Preferred Contact Time</label>
+                                    <select id="inq-time" class="w-full p-2 text-sm border-2 border-charcoal-800 rounded bg-white">
+                                        <option value="Immediate">As soon as possible</option>
+                                        <option value="Morning">Morning (10 AM - 1 PM)</option>
+                                        <option value="Evening">Evening (5 PM - 9 PM)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Inquiry Message / Product Specifications needed</label>
+                                <textarea id="inq-message" rows="3" placeholder="Specify brand, model name, or installation area in Kalkaji..." class="w-full p-2 text-sm border-2 border-charcoal-800 rounded"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-crimson-700 hover:bg-crimson-800 text-white font-bold text-sm py-3 rounded-xl indie-button flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Submit Inquiry to Mr. Gaurav Gulati
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Interactive Map Card Frame -->
+                    <div class="bg-cream-200 p-4 rounded-2xl indie-border space-y-2">
+                        <div class="flex justify-between items-center text-xs font-bold text-gray-800">
+                            <span><i class="fa-solid fa-map-pin text-crimson-700 mr-1"></i> Block H, Kalkaji Store Map</span>
+                            <span class="text-emerald-700"><i class="fa-solid fa-check"></i> Near Main Kalkaji Market</span>
+                        </div>
+                        <div class="w-full h-48 bg-cream-300 rounded-xl border-2 border-charcoal-800 relative flex flex-col items-center justify-center p-4 text-center">
+                            <i class="fa-solid fa-store text-4xl text-crimson-700 mb-2"></i>
+                            <strong class="font-serif text-charcoal-900 text-sm">Gulati Electric Co. Landmark</strong>
+                            <p class="text-xs text-gray-600 max-w-sm mt-1">H-14A, Block H, Kalkaji, New Delhi, Delhi 110019</p>
+                            <a href="https://maps.google.com/?q=Gulati+Electric+Co+H-14A+Block+H+Kalkaji+New+Delhi" target="_blank" class="mt-3 bg-white text-crimson-700 font-bold text-xs px-3 py-1.5 rounded indie-border hover:bg-gray-50">
+                                Open in Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INQUIRY CART SLIDE-OVER DRAWER -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity" onclick="toggleCartDrawer()"></div>
+    <div id="cart-drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-cream-100 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 border-l-2 border-charcoal-800 flex flex-col justify-between">
+        
+        <!-- Drawer Header -->
+        <div class="p-4 bg-crimson-700 text-white flex justify-between items-center border-b-2 border-charcoal-800">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-clipboard-list text-xl text-amber-300"></i>
+                <h3 class="font-serif-header font-bold text-lg">Inquiry Quote List</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="text-white hover:text-amber-300 text-xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Drawer Content Body -->
+        <div class="p-4 flex-grow overflow-y-auto space-y-3" id="cart-items-container">
+            <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-4 bg-cream-200 border-t-2 border-charcoal-800 space-y-3">
+            <div class="flex justify-between items-center text-sm font-bold text-charcoal-900">
+                <span>Total Items Selected:</span>
+                <span id="cart-total-count" class="text-crimson-700 font-mono text-base">0</span>
+            </div>
+            <p class="text-[11px] text-gray-600">Send your selected items directly to Mr. Gaurav Gulati on WhatsApp for instant stock check & negotiated price quote!</p>
+            
+            <button onclick="sendCartToWhatsApp()" id="btn-whatsapp-quote" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl indie-button flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Send Inquiry via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="product-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-cream-100 border-2 border-charcoal-800 rounded-2xl max-w-xl w-full p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto space-y-4">
+            <button onclick="closeProductModal()" class="absolute right-4 top-4 text-gray-500 hover:text-crimson-700 text-2xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="product-modal-content">
+                <!-- JS Injected -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-msg" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-charcoal-900 text-white px-5 py-3 rounded-xl border-2 border-amber-500 shadow-2xl z-50 text-xs sm:text-sm font-bold hidden flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-text">Item added to inquiry quote!</span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal-900 text-cream-200 border-t-2 border-charcoal-800 mt-12 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
+            
+            <!-- Col 1 -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-crimson-700 text-white rounded font-serif font-bold flex items-center justify-center">GE</div>
+                    <h3 class="font-serif-header font-bold text-base text-white">Gulati Electric Co.</h3>
+                </div>
+                <p class="text-gray-400 leading-relaxed">
+                    Kalkaji's neighborhood destination for authentic home appliances, juicers, chimneys, gas stoves, air conditioners, and electrical solutions.
+                </p>
+                <p class="text-amber-400 font-mono font-bold">GSTIN: 07BEOPG8091N1ZQ</p>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="space-y-2">
+                <h4 class="font-serif-header font-bold text-sm text-white border-b border-gray-700 pb-2">Quick Navigation</h4>
+                <ul class="space-y-1.5 text-gray-300">
+                    <li><button onclick="switchTab('home')" class="hover:text-amber-400">Home</button></li>
+                    <li><button onclick="switchTab('catalog')" class="hover:text-amber-400">Full Product Catalog</button></li>
+                    <li><button onclick="switchTab('chimneys')" class="hover:text-amber-400">Kitchen Chimneys & Hobs</button></li>
+                    <li><button onclick="switchTab('cooling')" class="hover:text-amber-400">Window & Split ACs</button></li>
+                    <li><button onclick="switchTab('brands')" class="hover:text-amber-400">Authorized Brands</button></li>
+                    <li><button onclick="switchTab('about')" class="hover:text-amber-400">About Store & Legacy</button></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="space-y-2">
+                <h4 class="font-serif-header font-bold text-sm text-white border-b border-gray-700 pb-2">Authorized Store Brands</h4>
+                <p class="text-gray-400 leading-relaxed">
+                    Sujata • Morphy Richards • Havells • Glen • IFB • Kenstar • Faber • Skyline • Pigeon
+                </p>
+                <div class="pt-2 text-amber-400 font-semibold">
+                    <i class="fa-solid fa-shield-halved mr-1"></i> 100% Genuine Brand Warranty Guaranteed
+                </div>
+            </div>
+
+            <!-- Col 4 -->
+            <div class="space-y-2">
+                <h4 class="font-serif-header font-bold text-sm text-white border-b border-gray-700 pb-2">Store Address & Contact</h4>
+                <p class="text-gray-300">H-14A, Block H, Kalkaji, New Delhi, Delhi 110019</p>
+                <p class="text-gray-300">Phone: <a href="tel:09871808832" class="text-amber-400 font-bold">098718 08832</a> (Mr. Gaurav Gulati)</p>
+                <p class="text-gray-300">Hours: Open Daily 10:00 AM – 9:30 PM</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-4 border-t border-gray-800 text-center text-gray-500 text-[11px] flex flex-col sm:flex-row justify-between items-center gap-2">
+            <span>© 2026 Gulati Electric Co. All Rights Reserved. Kalkaji, New Delhi.</span>
+            <span>Made with <i class="fa-solid fa-heart text-crimson-700"></i> for South Delhi Local Retail</span>
+        </div>
+    </footer>
+
+    <script>
+        const PRODUCTS_DATA = [
+            {
+                id: "p1",
+                name: "Sujata Dynamix 900W Juicer Mixer Grinder",
+                brand: "Sujata",
+                category: "Kitchen Appliances",
+                price: "₹5,490",
+                priceEst: 5490,
+                rating: "4.8",
+                reviews: "140",
+                imageIcon: "fa-blender",
+                specs: "900W Heavy Duty Motor • 90 Min Continuous Run • 3 Stainless Steel Jars",
+                inStock: true,
+                badge: "Best Seller",
+                desc: "The undisputed king of Indian kitchen mixers. Heavy duty 900-watt motor with double ball bearings for efficiency, low maintenance, and trouble-free running for years."
+            },
+            {
+                id: "p2",
+                name: "Sujata Powermatic Plus 900W Juicer Mixer",
+                brand: "Sujata",
+                category: "Kitchen Appliances",
+                price: "₹5,950",
+                priceEst: 5950,
+                rating: "4.9",
+                reviews: "210",
+                imageIcon: "fa-glass-water",
+                specs: "900W • Honeycomb Filter Mesh • Unbreakable Polycarbonate Jar",
+                inStock: true,
+                badge: "Top Rated",
+                desc: "Most trusted juicer in India. Yields high juice extraction with unique honeycomb filter mesh and high-speed motor."
+            },
+            {
+                id: "p3",
+                name: "Morphy Richards 25L AirCrisp Digital Air Fryer OTG",
+                brand: "Morphy Richards",
+                category: "Air Fryers & OTGs",
+                price: "₹9,290",
+                priceEst: 9290,
+                rating: "4.7",
+                reviews: "85",
+                imageIcon: "fa-box-open",
+                specs: "25 Litre Capacity • 360° AirCrisp Tech • Digital Touch Controls",
+                inStock: true,
+                badge: "Store Showcase",
+                desc: "Combines Air Fryer & OTG baking versatility. Features rapid air circulation for 90% less oil cooking, baking cakes, and roasting."
+            },
+            {
+                id: "p4",
+                name: "Morphy Richards 20MWS Black Microwave Oven",
+                brand: "Morphy Richards",
+                category: "Kitchen Appliances",
+                price: "₹6,490",
+                priceEst: 6490,
+                rating: "4.6",
+                reviews: "64",
+                imageIcon: "fa-microchip",
+                specs: "20L Solo • 5 Power Levels • Quick Defrost Function",
+                inStock: true,
+                badge: "Popular",
+                desc: "Compact 20L solo microwave with sleek black mirror finish, perfect for heating, quick defrosting, and simple Indian cooking."
+            },
+            {
+                id: "p5",
+                name: "Glen 60cm Filterless Auto-Clean Kitchen Chimney (1200 m³/hr)",
+                brand: "Glen",
+                category: "Cooking & Stoves",
+                price: "₹11,990",
+                priceEst: 11990,
+                rating: "4.7",
+                reviews: "92",
+                imageIcon: "fa-wind",
+                specs: "1200 m³/hr Suction • Motion Sensor Control • Heat Auto Clean",
+                inStock: true,
+                badge: "Chimney Top Pick",
+                desc: "Filterless chimney designed for Indian tadka cooking. Motion gesture control allows touch-free operation with messy hands."
+            },
+            {
+                id: "p6",
+                name: "Glen 3-Burner Toughened Glass Top Gas Stove",
+                brand: "Glen",
+                category: "Cooking & Stoves",
+                price: "₹5,800",
+                priceEst: 5800,
+                rating: "4.5",
+                reviews: "78",
+                imageIcon: "fa-fire-burner",
+                specs: "Toughened Black Glass • Forged Brass Burners • Auto Ignition",
+                inStock: true,
+                badge: "Kalkaji Favorite",
+                desc: "Stylish and sturdy 3-burner hob top gas stove with heavy brass burners and easy-clean spill tray."
+            },
+            {
+                id: "p7",
+                name: "Havells Heavy Duty 1.5 Ton 5-Star Inverter Split AC",
+                brand: "Havells",
+                category: "Air Conditioning",
+                price: "₹37,990",
+                priceEst: 37990,
+                rating: "4.8",
+                reviews: "115",
+                imageIcon: "fa-snowflake",
+                specs: "1.5 Ton • 5 Star Energy • 100% Copper Coil • Heavy Duty Cooling at 52°C",
+                inStock: true,
+                badge: "Express Local Install",
+                desc: "Superior cooling engineered for harsh North Indian summer heat. Includes anti-bacterial air filtration and low power consumption."
+            },
+            {
+                id: "p8",
+                name: "Havells Window AC 1.5 Ton 3-Star",
+                brand: "Havells",
+                category: "Air Conditioning",
+                price: "₹27,500",
+                priceEst: 27500,
+                rating: "4.6",
+                reviews: "54",
+                imageIcon: "fa-square-poll-vertical",
+                specs: "1.5 Ton Window AC • 100% Copper Condenser • Quick Cool Mode",
+                inStock: true,
+                badge: "High Demand",
+                desc: "Reliable window AC praised by Kalkaji local buyers for fast room cooling and hassle-free quick installation."
+            },
+            {
+                id: "p9",
+                name: "Kenstar 20L Solo Microwave Oven (KM20SSLN-MGZ)",
+                brand: "Kenstar",
+                category: "Kitchen Appliances",
+                price: "₹5,890",
+                priceEst: 5890,
+                rating: "4.4",
+                reviews: "40",
+                imageIcon: "fa-box",
+                specs: "20L Solo • Mechanical Knob • Powder Coated Cavity",
+                inStock: true,
+                badge: "Value Buy",
+                desc: "Durable and simple to use solo microwave. Ideal for small families, reheating, and defrosting meals easily."
+            },
+            {
+                id: "p10",
+                name: "Havells Instanio 3-Litre Instant Water Geyser",
+                brand: "Havells",
+                category: "Water Heating & Geysers",
+                price: "₹3,890",
+                priceEst: 3890,
+                rating: "4.7",
+                reviews: "130",
+                imageIcon: "fa-faucet-drip",
+                specs: "3L Instant • Stainless Steel Tank • Color-Changing LED Indicator",
+                inStock: true,
+                badge: "Winter Essential",
+                desc: "Provides piping hot water within seconds. Rust-proof shock-resisting plastic outer body with high-grade heating element."
+            },
+            {
+                id: "p11",
+                name: "Morphy Richards 30RC Manual Oven Toaster Griller",
+                brand: "Morphy Richards",
+                category: "Air Fryers & OTGs",
+                price: "₹7,800",
+                priceEst: 7800,
+                rating: "4.6",
+                reviews: "60",
+                imageIcon: "fa-temperature-arrow-up",
+                specs: "30L Capacity • Motorized Rotisserie • Wire Rack & Baking Tray",
+                inStock: true,
+                badge: "Baking Favorite",
+                desc: "Great for baking cakes, pizzas, and roasting kebabs with motorized rotisserie feature."
+            },
+            {
+                id: "p12",
+                name: "Havells Stealth Air 1200mm Decorative Ceiling Fan",
+                brand: "Havells",
+                category: "Fans & Ventilation",
+                price: "₹3,450",
+                priceEst: 3450,
+                rating: "4.8",
+                reviews: "180",
+                imageIcon: "fa-fan",
+                specs: "1200mm Sweep • Dust Resistant Coating • Ultra Quiet Operation",
+                inStock: true,
+                badge: "Top Quality",
+                desc: "Super quiet air delivery fan with aerodynamic blades and dust-resistant paint finish."
+            }
+        ];
+
+        let cart = [];
+        let currentTab = 'home';
+
+        // Initialize App on DOM Loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            renderFeaturedProducts();
+            renderCatalogProducts(PRODUCTS_DATA);
+            renderChimneysSpecial();
+            renderCoolingSpecial();
+            calculateChimneyRecommendation();
+            calculateAcRecommendation();
+            updateCartUI();
+        });
+
+        function switchTab(tabId) {
+            currentTab = tabId;
+
+            // Hide all view sections
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.add('hidden'));
+
+            // Show target view
+            const target = document.getElementById(`view-${tabId}`);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update Tab button active styles
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('active-tab', 'text-crimson-700', 'font-bold');
+                btn.classList.add('text-gray-700');
+            });
+
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active-tab', 'text-crimson-700', 'font-bold');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function createProductCardHTML(p) {
+            return `
+                <div class="bg-cream-100 p-4 rounded-xl indie-border flex flex-col justify-between hover:border-crimson-700 transition relative group">
+                    <div>
+                        <!-- Badge & Category -->
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <span class="bg-amber-500 text-charcoal-900 font-bold text-[10px] px-2 py-0.5 rounded uppercase indie-border">
+                                ${p.badge}
+                            </span>
+                            <span class="text-[11px] font-bold text-gray-500 uppercase">${p.brand}</span>
+                        </div>
+
+                        <!-- Product Visual Container -->
+                        <div class="w-full h-36 bg-cream-200 rounded-lg border border-gray-300 flex items-center justify-center my-2 text-crimson-700 text-4xl group-hover:scale-105 transition">
+                            <i class="fa-solid ${p.imageIcon}"></i>
+                        </div>
+
+                        <!-- Title & Specs -->
+                        <h4 class="font-bold text-sm text-charcoal-900 leading-snug line-clamp-2">${p.name}</h4>
+                        <p class="text-xs text-gray-600 my-2 leading-tight">${p.specs}</p>
+                    </div>
+
+                    <div class="pt-3 border-t border-gray-200 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-gray-500 block">Store Price</span>
+                                <span class="font-serif-header font-bold text-base text-crimson-700">${p.price}</span>
+                            </div>
+                            <div class="text-right text-[11px] text-emerald-800 font-bold bg-emerald-100 px-2 py-1 rounded">
+                                <i class="fa-solid fa-store mr-1"></i> Kalkaji Stock
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openProductModal('${p.id}')" class="bg-cream-200 hover:bg-cream-300 text-charcoal-900 font-bold text-xs py-2 rounded indie-button text-center">
+                                View Specs
+                            </button>
+                            <button onclick="addToCart('${p.id}')" class="bg-crimson-700 hover:bg-crimson-800 text-white font-bold text-xs py-2 rounded indie-button text-center">
+                                + Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderFeaturedProducts() {
+            const grid = document.getElementById('home-featured-products-grid');
+            if (!grid) return;
+            const featured = PRODUCTS_DATA.slice(0, 4);
+            grid.innerHTML = featured.map(p => createProductCardHTML(p)).join('');
+        }
+
+        function renderCatalogProducts(items) {
+            const grid = document.getElementById('catalog-products-grid');
+            if (!grid) return;
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-gray-500 bg-cream-200 rounded-xl indie-border">
+                        <i class="fa-solid fa-boxes-packing text-4xl mb-2 text-crimson-700"></i>
+                        <p class="font-bold text-base">No appliances found matching your criteria.</p>
+                        <p class="text-xs">Try resetting search keywords or call Mr. Gaurav Gulati directly at 098718 08832.</p>
+                    </div>
+                `;
+                return;
+            }
+            grid.innerHTML = items.map(p => createProductCardHTML(p)).join('');
+        }
+
+        function renderChimneysSpecial() {
+            const grid = document.getElementById('chimneys-products-grid');
+            if (!grid) return;
+            const items = PRODUCTS_DATA.filter(p => p.category === 'Cooking & Stoves');
+            grid.innerHTML = items.map(p => createProductCardHTML(p)).join('');
+        }
+
+        function renderCoolingSpecial() {
+            const grid = document.getElementById('cooling-products-grid');
+            if (!grid) return;
+            const items = PRODUCTS_DATA.filter(p => p.category === 'Air Conditioning' || p.category === 'Fans & Ventilation');
+            grid.innerHTML = items.map(p => createProductCardHTML(p)).join('');
+        }
+
+        function applyCatalogFilters() {
+            const query = document.getElementById('catalog-search').value.toLowerCase().trim();
+            const category = document.getElementById('filter-category').value;
+            const brand = document.getElementById('filter-brand').value;
+
+            const filtered = PRODUCTS_DATA.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(query) || 
+                                      p.brand.toLowerCase().includes(query) || 
+                                      p.specs.toLowerCase().includes(query) ||
+                                      p.category.toLowerCase().includes(query);
+                const matchesCat = category === 'ALL' || p.category === category;
+                const matchesBrand = brand === 'ALL' || p.brand === brand;
+
+                return matchesSearch && matchesCat && matchesBrand;
+            });
+
+            renderCatalogProducts(filtered);
+        }
+
+        function filterCatalogCategory(categoryName) {
+            switchTab('catalog');
+            document.getElementById('filter-category').value = categoryName;
+            applyCatalogFilters();
+        }
+
+        function resetCatalogFilters() {
+            document.getElementById('catalog-search').value = '';
+            document.getElementById('filter-category').value = 'ALL';
+            document.getElementById('filter-brand').value = 'ALL';
+            renderCatalogProducts(PRODUCTS_DATA);
+        }
+
+        function calculateChimneyRecommendation() {
+            const burners = parseInt(document.getElementById('calc-stove-burners').value);
+            const cooking = document.getElementById('calc-cooking-style').value;
+            const ducting = document.getElementById('calc-ducting').value;
+
+            let size = burners >= 4 ? "90 cm Wide" : "60 cm Wide";
+            let suction = 1000;
+
+            if (cooking === 'medium') suction += 200;
+            if (cooking === 'heavy') suction += 350;
+            if (ducting === 'medium') suction += 100;
+            if (ducting === 'long') suction += 200;
+
+            const resDiv = document.getElementById('chimney-recommendation-result');
+            resDiv.innerHTML = `
+                <div>
+                    <span class="text-xs text-gray-500 font-bold uppercase block">Recommended Specification for Your Kitchen</span>
+                    <strong class="font-serif-header text-xl text-crimson-700">${size} Chimney • ${suction} m³/hr Suction Power</strong>
+                    <p class="text-xs text-gray-600">Ideal for filterless auto-clean models (Glen or Faber) with heavy Indian tadka extraction.</p>
+                </div>
+                <button onclick="filterCatalogCategory('Cooking & Stoves')" class="bg-crimson-700 hover:bg-crimson-800 text-white font-bold text-xs px-4 py-2.5 rounded-lg indie-button shrink-0">
+                    View Matching Chimneys
+                </button>
+            `;
+        }
+
+        function calculateAcRecommendation() {
+            const sqft = parseInt(document.getElementById('calc-ac-room-size').value);
+            const floor = document.getElementById('calc-ac-floor').value;
+            const sun = document.getElementById('calc-ac-sun').value;
+
+            let ton = "1.0 Ton";
+            if (sqft > 130) ton = "1.5 Ton";
+            if (sqft > 210) ton = "2.0 Ton";
+
+            if (floor === 'top' && ton === "1.0 Ton") ton = "1.5 Ton";
+
+            const resDiv = document.getElementById('ac-recommendation-result');
+            resDiv.innerHTML = `
+                <div>
+                    <span class="text-xs text-gray-500 font-bold uppercase block">Recommended AC Capacity for Delhi Climate</span>
+                    <strong class="font-serif-header text-xl text-crimson-700">${ton} Inverter AC (5-Star / 3-Star)</strong>
+                    <p class="text-xs text-gray-600">Opt for Havells Heavy-Duty Copper Coil models for low maintenance & power savings.</p>
+                </div>
+                <button onclick="filterCatalogCategory('Air Conditioning')" class="bg-crimson-700 hover:bg-crimson-800 text-white font-bold text-xs px-4 py-2.5 rounded-lg indie-button shrink-0">
+                    View AC Models
+                </button>
+            `;
+        }
+
+        function openProductModal(productId) {
+            const p = PRODUCTS_DATA.find(item => item.id === productId);
+            if (!p) return;
+
+            const container = document.getElementById('product-modal-content');
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-16 h-16 bg-cream-200 text-crimson-700 rounded-xl border-2 border-charcoal-800 flex items-center justify-center text-3xl">
+                            <i class="fa-solid ${p.imageIcon}"></i>
+                        </div>
+                        <div>
+                            <span class="bg-amber-500 text-charcoal-900 font-bold text-[10px] px-2 py-0.5 rounded indie-border uppercase">${p.brand}</span>
+                            <h3 class="font-serif-header font-bold text-lg text-charcoal-900 leading-tight">${p.name}</h3>
+                            <span class="text-xs text-gray-500">Category: ${p.category}</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-cream-200 p-4 rounded-xl border border-gray-300 space-y-2 text-xs">
+                        <strong class="text-charcoal-900 block text-sm font-serif">Product Description & Specs</strong>
+                        <p class="text-gray-700 leading-relaxed">${p.desc}</p>
+                        <div class="font-bold text-crimson-700 mt-2">${p.specs}</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 text-xs bg-white p-3 rounded-lg border border-gray-200">
+                        <div>
+                            <span class="text-gray-500 block">Estimated Price</span>
+                            <span class="font-serif font-bold text-lg text-crimson-700">${p.price}</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 block">Store Availability</span>
+                            <span class="font-bold text-emerald-700"><i class="fa-solid fa-circle-check"></i> In Stock Kalkaji</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-2 pt-2">
+                        <button onclick="addToCart('${p.id}'); closeProductModal()" class="flex-1 bg-crimson-700 hover:bg-crimson-800 text-white font-bold text-xs py-3 rounded-xl indie-button">
+                            + Add to Inquiry Quote
+                        </button>
+                        <a href="https://wa.me/919871808832?text=Hello%20Gaurav%20Ji,%20I%20am%20interested%20in%20${encodeURIComponent(p.name)}" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 rounded-xl indie-button text-center flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Direct WhatsApp
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-drawer-overlay');
+
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function addToCart(productId) {
+            const p = PRODUCTS_DATA.find(item => item.id === productId);
+            if (!p) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...p, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`Added "${p.name}" to inquiry quote list!`);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const countBadge = document.getElementById('cart-count-badge');
+            const totalCountSpan = document.getElementById('cart-total-count');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            countBadge.innerText = totalItems;
+            totalCountSpan.innerText = totalItems;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 text-gray-500">
+                        <i class="fa-solid fa-clipboard-list text-5xl mb-3 text-crimson-700/40"></i>
+                        <p class="font-bold text-sm text-charcoal-900">Your Inquiry Quote list is empty</p>
+                        <p class="text-xs mt-1">Add appliances from catalog to request customized pricing & installation details!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="bg-white p-3 rounded-xl border border-gray-300 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-10 h-10 bg-cream-200 text-crimson-700 rounded flex items-center justify-center shrink-0">
+                            <i class="fa-solid ${item.imageIcon}"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs text-charcoal-900 line-clamp-1">${item.name}</h4>
+                            <span class="text-[11px] font-serif font-bold text-crimson-700">${item.price}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold bg-cream-200 px-2 py-0.5 rounded">Qty: ${item.qty}</span>
+                        <button onclick="removeFromCart('${item.id}')" class="text-gray-400 hover:text-red-600 text-sm">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function sendCartToWhatsApp() {
+            if (cart.length === 0) {
+                showToast("Please add at least one appliance to inquiry first!");
+                return;
+            }
+
+            let text = "Hello Mr. Gaurav Gulati (Gulati Electric Co. Kalkaji),\nI would like an inquiry/price quote for the following items:\n\n";
+            cart.forEach((item, idx) => {
+                text += `${idx + 1}. ${item.name} (${item.brand}) - Qty: ${item.qty}\n`;
+            });
+            text += "\nPlease advise on best store price and installation availability in South Delhi.";
+
+            const encoded = encodeURIComponent(text);
+            window.open(`https://wa.me/919871808832?text=${encoded}`, '_blank');
+        }
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const author = document.getElementById('review-author').value;
+            const rating = document.getElementById('review-rating').value;
+            const text = document.getElementById('review-text').value;
+
+            // Add new review dynamically to top of list
+            const grid = document.getElementById('google-reviews-grid');
+            const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+            const newCardHTML = `
+                <div class="bg-amber-50 p-5 rounded-xl border-2 border-amber-500 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex text-amber-500 text-sm font-bold">${stars}</div>
+                        <p class="text-xs text-gray-800 leading-relaxed italic">"${text}"</p>
+                    </div>
+                    <div class="border-t border-amber-200 pt-2 flex justify-between items-center text-[11px] text-gray-500">
+                        <span class="font-bold text-charcoal-900"><i class="fa-solid fa-user-check text-emerald-600 mr-1"></i> ${author}</span>
+                        <span class="text-amber-700 font-bold">Just Submitted</span>
+                    </div>
+                </div>
+            `;
+
+            grid.insertAdjacentHTML('afterbegin', newCardHTML);
+            e.target.reset();
+            showToast("Thank you! Your store review has been posted.");
+        }
+
+        function handleDirectInquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById('inq-name').value;
+            const phone = document.getElementById('inq-phone').value;
+            const cat = document.getElementById('inq-category').value;
+            const msg = document.getElementById('inq-message').value;
+
+            const formatted = `Hello Gaurav Ji,%0AInquiry from website:%0AName: ${name}%0APhone: ${phone}%0ACategory: ${cat}%0AMessage: ${msg}`;
+            window.open(`https://wa.me/919871808832?text=${formatted}`, '_blank');
+
+            e.target.reset();
+            showToast("Inquiry generated! Redirecting to Mr. Gaurav Gulati on WhatsApp.");
+        }
+
+        function showToast(text) {
+            const toast = document.getElementById('toast-msg');
+            const toastText = document.getElementById('toast-text');
+            toastText.innerText = text;
+
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
