@@ -1,4 +1,4 @@
-# Gulati Electric Co. — Indie Local Appliance Store Web App ⚡
+# Gulati Electric Co. — Indie Local Appliance Store Web App 
 
 An interactive, responsive single-page web application designed for **Gulati Electric Co.**, a trusted neighborhood electrical and home appliance retailer based in Block H, Kalkaji, New Delhi.
 
@@ -6,7 +6,7 @@ This project combines an **"Indie Local Retail Legacy"** aesthetic with modern w
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 * **Indie Neighborhood Aesthetics:** Custom-styled vintage indie storefront look using warm antique cream, deep crimson storefront red, and retro badge stamps.
 * **Seamless Multi-View Router:** Client-side navigation across multiple views:
